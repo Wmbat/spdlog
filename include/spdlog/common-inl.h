@@ -7,6 +7,8 @@
 #include <spdlog/common.h>
 #endif
 
+#include <iostream>
+
 namespace spdlog {
 namespace level {
 
@@ -21,7 +23,9 @@ SPDLOG_INLINE const string_view_t &to_string_view(spdlog::level::level_enum l) S
 
 SPDLOG_INLINE void set_string_view(spdlog::level::level_enum l, const string_view_t &s) SPDLOG_NOEXCEPT
 {
+   std::cout << "TEST: " << s.data() << std::endl;
     level_string_views[l] = s;
+   std::cout << "TEST AFTER: " << level_string_views[l].data() << std::endl;
 }
 
 SPDLOG_INLINE const char *to_short_c_str(spdlog::level::level_enum l) SPDLOG_NOEXCEPT
