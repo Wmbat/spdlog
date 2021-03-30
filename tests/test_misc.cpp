@@ -58,6 +58,9 @@ TEST_CASE("level_to_string_view", "[convert_to_string_view")
 TEST_CASE("set_level_to_string_view", "[set_string_view")
 {
     spdlog::level::set_string_view(spdlog::level::info, "INF");
+    auto test = spdlog::level::to_string_view(spdlog::level::info);
+    std::cout << "MISC TEST: " << test.data() << std::endl;
+
     REQUIRE(spdlog::level::to_string_view(spdlog::level::info) == "INF");
     spdlog::level::set_string_view(spdlog::level::info, "info"); // set it back
     REQUIRE(spdlog::level::to_string_view(spdlog::level::info) == "info");
